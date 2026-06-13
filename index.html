@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinshaw's Malaidaar Lassi — Sweet & Thick Since 1922</title>
+    <meta name="description" content="Dinshaw's Malaidaar Lassi - Sweet & Thick. Crafted with the finest milk since 1922. Experience the authentic Malaidaar texture.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ═══════════════ TOAST CONTAINER ═══════════════ -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- ═══════════════ LOADER ═══════════════ -->
+    <div id="loader">
+        <div class="loader-inner">
+            <div class="loader-spinner"></div>
+            <p class="loader-text">Loading Experience</p>
+            <p class="loader-percent" id="loaderPercent">0%</p>
+        </div>
+    </div>
+
+    <!-- ═══════════════ STICKY HEADER / NAV ═══════════════ -->
+    <nav id="mainNav" class="main-nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">Dinshaw's</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#products" class="nav-link active">Products</a></li>
+                <li><a href="#benefits" class="nav-link">Benefits</a></li>
+                <li><a href="#ingredients" class="nav-link">Ingredients</a></li>
+                <li><a href="#pricing" class="nav-link">Pricing</a></li>
+                <li><a href="#locator" class="nav-link">Find a Store</a></li>
+            </ul>
+            <button class="nav-cta" id="buyNowBtn">Buy Now</button>
+            <!-- Cart Icon -->
+            <button class="nav-cart-btn" id="cartToggleBtn" aria-label="Open cart">
+                <span class="material-symbols-outlined">shopping_cart</span>
+                <span class="cart-badge" id="cartBadge">0</span>
+            </button>
+            <!-- Mobile Hamburger -->
+            <button class="nav-hamburger" id="hamburgerBtn" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-menu-links">
+            <li><a href="#products">Products</a></li>
+            <li><a href="#benefits">Benefits</a></li>
+            <li><a href="#ingredients">Ingredients</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#locator">Find a Store</a></li>
+        </ul>
+    </div>
+
+    <!-- ═══════════════ SCROLL INDICATOR ═══════════════ -->
+    <div id="scrollIndicator" class="scroll-indicator">
+        <div class="scroll-indicator-mouse">
+            <div class="scroll-indicator-wheel"></div>
+        </div>
+        <p>Scroll to explore</p>
+    </div>
+
+    <!-- ═══════════════ PROGRESS BAR ═══════════════ -->
+    <div id="progressBar" class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- ═══════════════ CANVAS SCROLL ANIMATION ═══════════════ -->
+    <section id="scrollSection" class="scroll-section">
+        <canvas id="animCanvas"></canvas>
+    </section>
+
+    <!-- ═══════════════ BENEFITS SECTION ═══════════════ -->
+    <section class="section section-surface" id="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">The Dinshaw's Difference</h2>
+                <p class="section-subtitle">Crafted with care to bring you the most authentic and refreshing experience.</p>
+            </div>
+            <div class="benefits-grid">
+                <!-- Benefit 1 -->
+                <div class="benefit-card" id="benefit-1">
+                    <div class="benefit-icon">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+                    </div>
+                    <h3 class="benefit-title">Purely Natural</h3>
+                    <p class="benefit-desc">Made with 100% natural ingredients, free from artificial preservatives for a pure, refreshing taste.</p>
+                </div>
+                <!-- Benefit 2 -->
+                <div class="benefit-card" id="benefit-2">
+                    <div class="benefit-icon">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+                    </div>
+                    <h3 class="benefit-title">Incredibly Creamy</h3>
+                    <p class="benefit-desc">Our signature 'Malaidaar' texture ensures a thick, rich, and deeply satisfying mouthfeel.</p>
+                </div>
+                <!-- Benefit 3 -->
+                <div class="benefit-card" id="benefit-3">
+                    <div class="benefit-icon">
+                        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+                    </div>
+                    <h3 class="benefit-title">Nutrient Rich</h3>
+                    <p class="benefit-desc">Packed with essential calcium and probiotics, making it a healthy choice for everyday hydration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ PRODUCT SHOWCASE ═══════════════ -->
+    <section class="section section-white" id="products">
+        <div class="container product-showcase">
+            <div class="product-image-wrap">
+                <div class="product-image-container">
+                    <img alt="Dinshaw's Malaidaar Lassi Cup" class="product-image"
+                         src="https://lh3.googleusercontent.com/aida-public/AB6AXuDI-_jlaLDQY_ngT3Ssk9EWmG2UEySGQG_TA8l-SmtkcdK8YpoLg4wFQVtFy47SmonH0UqhB6QluHPER5DmFvZsIpeFbpCThkmzk1npkvbOCjWiv6U4nlvExfO2sVp0ZMoUj8EeBnGcdYhnk_pIXMeobqiKmX9UcfEl-b0CEUBFvWTyDLMvZBevZDsVwQg0wGzbRaQ_jXUnv-jY3YbKuSGyMsWWC3jtREoiH9c0CcVKuciVukHqkxXkNNae8dwYijwaoDuPjD_P8Fe2">
+                    <div class="badge-bestseller">Best Seller</div>
+                </div>
+            </div>
+            <div class="product-info">
+                <h2 class="product-title">The True Taste of Tradition</h2>
+                <p class="product-desc">
+                    Every bottle of Dinshaw's Lassi carries the legacy of authentic Indian
+                    flavors. The distinct <strong>Malaidaar</strong> (creamy) texture is achieved through our
+                    time-honored churning process, ensuring a perfectly thick consistency
+                    that coats the palate.
+                </p>
+                <p class="product-subdesc">
+                    Sweetened just right and served chilled, it's not just a beverage; it's a
+                    nostalgic experience that refreshes and revitalizes.
+                </p>
+                <ul class="product-checklist">
+                    <li>
+                        <span class="material-symbols-outlined check-icon">check_circle</span>
+                        Authentic traditional recipe
+                    </li>
+                    <li>
+                        <span class="material-symbols-outlined check-icon">check_circle</span>
+                        Perfectly balanced sweetness
+                    </li>
+                    <li>
+                        <span class="material-symbols-outlined check-icon">check_circle</span>
+                        Refreshing thirst quencher
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ PRICING SECTION ═══════════════ -->
+    <section class="section section-surface" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Choose Your Size</h2>
+                <p class="section-subtitle">Premium taste at prices that'll make you smile.</p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Small -->
+                <div class="pricing-card" id="price-small">
+                    <div class="pricing-ribbon">Popular</div>
+                    <div class="pricing-cup-icon">
+                        <svg viewBox="0 0 80 100" class="cup-svg small-cup">
+                            <path d="M15 10 L65 10 L58 90 L22 90 Z" fill="#003d9b" rx="4"/>
+                            <ellipse cx="40" cy="10" rx="25" ry="6" fill="#b60f29" opacity="0.8"/>
+                            <text x="40" y="55" text-anchor="middle" fill="white" font-size="12" font-weight="700" font-family="Sora">D</text>
+                        </svg>
+                    </div>
+                    <h3 class="pricing-size">Regular</h3>
+                    <p class="pricing-volume">200 ml</p>
+                    <div class="pricing-price">
+                        <span class="pricing-currency">₹</span>
+                        <span class="pricing-amount">30</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="material-symbols-outlined">check</span> Sweet & Thick</li>
+                        <li><span class="material-symbols-outlined">check</span> Made from Liquid Milk</li>
+                        <li><span class="material-symbols-outlined">check</span> No Preservatives</li>
+                    </ul>
+                    <button class="pricing-btn" id="orderSmallBtn">Order Now</button>
+                </div>
+                <!-- Large -->
+                <div class="pricing-card featured" id="price-large">
+                    <div class="pricing-ribbon featured-ribbon">Best Value</div>
+                    <div class="pricing-cup-icon">
+                        <svg viewBox="0 0 80 100" class="cup-svg large-cup">
+                            <path d="M12 8 L68 8 L60 92 L20 92 Z" fill="#003d9b" rx="4"/>
+                            <ellipse cx="40" cy="8" rx="28" ry="7" fill="#b60f29" opacity="0.8"/>
+                            <text x="40" y="55" text-anchor="middle" fill="white" font-size="14" font-weight="700" font-family="Sora">D</text>
+                        </svg>
+                    </div>
+                    <h3 class="pricing-size">Large</h3>
+                    <p class="pricing-volume">400 ml</p>
+                    <div class="pricing-price">
+                        <span class="pricing-currency">₹</span>
+                        <span class="pricing-amount">60</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="material-symbols-outlined">check</span> Sweet & Thick</li>
+                        <li><span class="material-symbols-outlined">check</span> Made from Liquid Milk</li>
+                        <li><span class="material-symbols-outlined">check</span> No Preservatives</li>
+                        <li><span class="material-symbols-outlined">check</span> Double the Freshness</li>
+                    </ul>
+                    <button class="pricing-btn featured-btn" id="orderLargeBtn">Order Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ INGREDIENTS SECTION ═══════════════ -->
+    <section class="section section-white" id="ingredients">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sikhshair's Good Milk</h2>
+                <p class="section-subtitle">Our commitment to quality starts at the source. Only the finest milk makes it into our lassi.</p>
+            </div>
+            <div class="ingredients-grid">
+                <div class="ingredient-image-card" id="ingr-1">
+                    <div class="ingredient-img" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAbFS37seEAL0TJW0zTpcc5TPRnn3pegK0g8MBhDZXinPir1bO4TjNPBV0i6ErJz3NqIPMW2vGn2uwVxXDLP5n8CZj3L83amfqDjLEYYMpwU-9zQiZnwqT8WvZu3zW1OaxBaB-HJt4JD5JQNgct-MyM9o9BA7T6LcAvWFYp02gHgPdLj2Rvr0RQMFj5k0mjkrhL5Fxj0ngNvoW5GrvvywZzMLeIB9hEbxGISEa2cnMQGhsRPm-meBmnT3aDl1HCFsMX7zguJycrovBU');"></div>
+                </div>
+                <div class="ingredient-image-card" id="ingr-2">
+                    <div class="ingredient-img" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDDqOZXxW5ok_Qbnt3Fs0S-aCTviC8hCf-Hb3_aEQcCRzH2w906sZ3ErnnVHB2VYCUm5orocG_VR7-ZEEUhqMwrO6d2r9FPAru_JhVaRrdk-8bxqWdGIrEOLDGb2f5C-era9UVzTBPNUJZLdaqS9Kv8s0g733Ttw2pfX0R4jtQ47e0MahQ4tXb3M9NT0F0BJOzkCHFXybPzr3bfnd0GZkvuXmtiLOTqCPQMiXx9K5glzNWtFTKRmDthyFOjQ9besjHysispx3D_gC7m');"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ STORE LOCATOR ═══════════════ -->
+    <section class="section section-surface" id="locator">
+        <div class="container">
+            <div class="locator-card">
+                <div class="section-header">
+                    <h2 class="locator-title">Craving a cold Lassi?</h2>
+                    <p class="section-subtitle">Find a Dinshaw's retailer near you.</p>
+                </div>
+                <div class="locator-search">
+                    <div class="locator-input-wrap">
+                        <span class="material-symbols-outlined search-icon">search</span>
+                        <input type="text" class="locator-input" placeholder="Enter zip code or city" id="locatorInput">
+                    </div>
+                    <button class="locator-btn" id="searchLocatorBtn">Search</button>
+                </div>
+                <div class="locator-map">
+                    <span class="material-symbols-outlined map-icon">map</span>
+                    <p>Interactive map area</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <span class="footer-logo">Dinshaw's</span>
+                <p class="footer-tagline">Freshness in every drop.</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-col">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+                <div class="footer-col">
+                    <a href="#">Contact Us</a>
+                    <a href="#locator">Store Locator</a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>© 2024 Dinshaw's Dairy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════════ CART SIDEBAR ═══════════════ -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <aside class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h2 class="cart-title"><span class="material-symbols-outlined">shopping_cart</span> Your Cart</h2>
+            <button class="cart-close" id="cartCloseBtn" aria-label="Close cart">&times;</button>
+        </div>
+        <div class="cart-body" id="cartBody">
+            <!-- Empty state -->
+            <div class="cart-empty" id="cartEmpty">
+                <span class="material-symbols-outlined cart-empty-icon">shopping_bag</span>
+                <p>Your cart is empty</p>
+                <button class="cart-shop-btn" id="cartShopBtn">Start Shopping</button>
+            </div>
+            <!-- Cart items (populated by JS) -->
+            <div class="cart-items" id="cartItems"></div>
+        </div>
+        <!-- Coupon section -->
+        <div class="cart-coupon" id="cartCouponSection">
+            <p class="coupon-label">Have a coupon code?</p>
+            <div class="coupon-input-row">
+                <input type="text" class="coupon-input" id="couponInput" placeholder="e.g. BULK10">
+                <button class="coupon-apply-btn" id="couponApplyBtn">Apply</button>
+            </div>
+            <p class="coupon-message" id="couponMessage"></p>
+            <div class="coupon-hints">
+                <p class="coupon-hint"><strong>BULK10</strong> — 10% off (5+ items)</p>
+                <p class="coupon-hint"><strong>BULK20</strong> — 20% off (10+ items)</p>
+                <p class="coupon-hint"><strong>MEGA30</strong> — 30% off (20+ items)</p>
+                <p class="coupon-hint"><strong>FIRST15</strong> — 15% off (₹200+ order)</p>
+            </div>
+        </div>
+        <!-- Cart summary -->
+        <div class="cart-summary" id="cartSummary">
+            <div class="summary-row"><span>Subtotal</span><span id="cartSubtotal">₹0</span></div>
+            <div class="summary-row discount-row" id="discountRow" style="display:none;"><span>Discount (<span id="discountCode"></span>)</span><span class="discount-amount" id="discountAmount">-₹0</span></div>
+            <div class="summary-row total-row"><span>Total</span><span id="cartTotal">₹0</span></div>
+            <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+        </div>
+    </aside>
+
+    <!-- ═══════════════ CHECKOUT MODAL ═══════════════ -->
+    <div class="modal-overlay" id="checkoutOverlay">
+        <div class="modal checkout-modal" id="checkoutModal">
+            <button class="modal-close" id="checkoutCloseBtn">&times;</button>
+            <h2 class="modal-title">Checkout</h2>
+
+            <!-- Step 1: Customer Info -->
+            <div class="checkout-step" id="stepCustomer">
+                <h3 class="step-title">📋 Delivery Details</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="custName">Full Name</label>
+                        <input type="text" id="custName" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="custPhone">Phone Number</label>
+                        <input type="tel" id="custPhone" placeholder="10-digit number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="custEmail">Email (optional)</label>
+                        <input type="email" id="custEmail" placeholder="your@email.com">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="custAddress">Address</label>
+                        <textarea id="custAddress" rows="2" placeholder="Street, Building, Landmark" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="custCity">City</label>
+                        <input type="text" id="custCity" placeholder="City" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="custPincode">Pincode</label>
+                        <input type="text" id="custPincode" placeholder="6-digit pincode" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Payment -->
+            <div class="checkout-step" id="stepPayment">
+                <h3 class="step-title">💳 Payment Method</h3>
+                <div class="payment-options">
+                    <label class="payment-option selected" id="optCod">
+                        <input type="radio" name="paymentMethod" value="cod" checked>
+                        <div class="payment-option-content">
+                            <span class="material-symbols-outlined">local_shipping</span>
+                            <div>
+                                <strong>Cash on Delivery</strong>
+                                <p>Pay when your lassi arrives</p>
+                            </div>
+                        </div>
+                    </label>
+                    <label class="payment-option" id="optCard">
+                        <input type="radio" name="paymentMethod" value="card">
+                        <div class="payment-option-content">
+                            <span class="material-symbols-outlined">credit_card</span>
+                            <div>
+                                <strong>Card Payment</strong>
+                                <p>Debit / Credit card</p>
+                            </div>
+                        </div>
+                    </label>
+                    <label class="payment-option" id="optRazorpay">
+                        <input type="radio" name="paymentMethod" value="razorpay">
+                        <div class="payment-option-content">
+                            <span class="material-symbols-outlined">account_balance</span>
+                            <div>
+                                <strong>Razorpay</strong>
+                                <p>UPI, Netbanking, Wallets</p>
+                            </div>
+                        </div>
+                    </label>
+                </div>
+                <!-- Card form (shown when card selected) -->
+                <div class="card-form" id="cardForm" style="display:none;">
+                    <div class="form-group">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cardExpiry">Expiry</label>
+                            <input type="text" id="cardExpiry" placeholder="MM/YY" maxlength="5">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardCvv">CVV</label>
+                            <input type="password" id="cardCvv" placeholder="•••" maxlength="4">
+                        </div>
+                    </div>
+                </div>
+                <!-- Razorpay simulation -->
+                <div class="razorpay-sim" id="razorpayForm" style="display:none;">
+                    <div class="razorpay-box">
+                        <div class="razorpay-logo">Razorpay</div>
+                        <p>You'll be redirected to Razorpay's secure payment page.</p>
+                        <p class="razorpay-note">Demo mode: Payment will be simulated.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary in checkout -->
+            <div class="checkout-summary" id="checkoutSummary">
+                <h3 class="step-title">🧾 Order Summary</h3>
+                <div id="checkoutItemsList" class="checkout-items-list"></div>
+                <div class="summary-row"><span>Subtotal</span><span id="chkSubtotal">₹0</span></div>
+                <div class="summary-row discount-row" id="chkDiscountRow" style="display:none;"><span>Discount</span><span id="chkDiscount">-₹0</span></div>
+                <div class="summary-row total-row"><span>Total</span><span id="chkTotal">₹0</span></div>
+            </div>
+
+            <div class="checkout-error" id="checkoutError"></div>
+            <button class="place-order-btn" id="placeOrderBtn">
+                <span class="material-symbols-outlined">lock</span>
+                Place Order
+            </button>
+        </div>
+    </div>
+
+    <!-- ═══════════════ ORDER CONFIRMATION MODAL ═══════════════ -->
+    <div class="modal-overlay" id="confirmOverlay">
+        <div class="modal confirm-modal" id="confirmModal">
+            <div class="confirm-icon">✅</div>
+            <h2 class="confirm-title">Order Placed Successfully!</h2>
+            <p class="confirm-order-id" id="confirmOrderId"></p>
+            <div class="confirm-details" id="confirmDetails"></div>
+            <div class="confirm-actions">
+                <button class="confirm-btn" id="confirmDoneBtn">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════ CARTOON CHARACTER (Cursor Follower) ═══════════════ -->
+    <div id="cartoonCharacter" class="cartoon-character" aria-hidden="true">
+        <svg viewBox="0 0 120 140" class="character-svg">
+            <!-- Body -->
+            <ellipse cx="60" cy="110" rx="30" ry="25" fill="#003d9b"/>
+            <!-- Head -->
+            <circle cx="60" cy="55" r="35" fill="#ffecd2"/>
+            <!-- Hair -->
+            <ellipse cx="60" cy="30" rx="36" ry="18" fill="#3a2a1a"/>
+            <ellipse cx="35" cy="38" rx="8" ry="12" fill="#3a2a1a"/>
+            <ellipse cx="85" cy="38" rx="8" ry="12" fill="#3a2a1a"/>
+            <!-- Left eye white -->
+            <ellipse cx="45" cy="55" rx="10" ry="11" fill="white"/>
+            <!-- Right eye white -->
+            <ellipse cx="75" cy="55" rx="10" ry="11" fill="white"/>
+            <!-- Left pupil (animated) -->
+            <circle class="pupil left-pupil" cx="45" cy="55" r="5" fill="#1a1c1e"/>
+            <!-- Right pupil (animated) -->
+            <circle class="pupil right-pupil" cx="75" cy="55" r="5" fill="#1a1c1e"/>
+            <!-- Blush -->
+            <ellipse cx="35" cy="68" rx="7" ry="4" fill="#ffb3b1" opacity="0.5"/>
+            <ellipse cx="85" cy="68" rx="7" ry="4" fill="#ffb3b1" opacity="0.5"/>
+            <!-- Smile -->
+            <path d="M48 72 Q60 84 72 72" stroke="#1a1c1e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <!-- Lassi cup in hand -->
+            <rect x="85" y="90" width="18" height="28" rx="3" fill="#003d9b" opacity="0.85"/>
+            <ellipse cx="94" cy="90" rx="9" ry="3" fill="#b60f29" opacity="0.7"/>
+            <text x="94" y="108" text-anchor="middle" fill="white" font-size="8" font-weight="700" font-family="Sora">D</text>
+            <!-- Little hand -->
+            <ellipse cx="85" cy="100" rx="6" ry="5" fill="#ffecd2"/>
+        </svg>
+        <div class="character-speech" id="characterSpeech">Try Malaidaar Lassi! 🥛</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
