@@ -4,7 +4,8 @@
     // ── Configuration ──
     const TOTAL_FRAMES = 240;
     const isOldServer = window.location.port === "8080";
-    const IMAGE_PATH = isOldServer ? "../Downloads/ezgif-1d009f4810381493-jpg/ezgif-frame-" : "/frames/ezgif-frame-";
+    // Use local ezgif folder when serving from this project root
+    const IMAGE_PATH = isOldServer ? "../Downloads/ezgif-1d009f4810381493-jpg/ezgif-frame-" : "./ezgif-1d009f4810381493-jpg/ezgif-frame-";
 
     // ── DOM Elements ──
     const canvas = document.getElementById("animCanvas");
